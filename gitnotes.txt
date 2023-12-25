@@ -1,0 +1,90 @@
+
+VANarayana@@123321
+
+
+git init// to make a folder as local git repo
+git status // to check git working or not
+
+
+selected files(single) can be moved to staging, but only batch operations can be made from 
+staging to local, local to remote.
+
+git add code.java
+
+git commit -m "commiting code and example"
+
+git remote add origin "git url" //to set/map the remote repo
+
+git push origin master //to push to 'master' branch , first time required, next time git push is enough.
+
+
+deployment happens from master branch(ex dev branch), so all developers changes(vasu branch,raju branch etc) be added into the root branch by 
+raising pull request.
+
+team lead will review those changes and either merge into master or provide comments to update code.
+
+
+git checkout vasu// checkout is used to switch b/w branches, all our local untracked files go into this branch with untracked.
+git checkout -b "vasu"// incase branch isnot preset it will create.
+
+git status // to check untracked files
+git branch// to know which branch we are in, git status also show the branch.
+
+git add code2.java// to add to vasu staging
+git commit -m "commit to vasu branch"
+git push //try this, it says the current branch vasu has no upstream branch, and gives a command
+
+git push --set-upstream origin vasu // its pushes the code2.java into vasu and also creates new branch vasu in remote repo.
+
+to merge code2.java from vasu to master
+----------------------------------------
+goto ui, compare and create pull request->add comment-> create pull request.
+
+in real time, merge pull request options available only to team leads to merge feature branch into main branch.
+merge pull request->confirm merge.
+
+
+there is a repo for which I Want to contribute but not having access to update(so cannot create branch and push and create pull request)
+
+after forking the same project, comes into my space to make changes.
+
+git clone 'fork url' // to get that project into my local, do not use git init as we are not creating any new repo.
+
+
+note: if there are any conflits it comes at the time of creating pull requests only.
+
+
+git fetch// fetches the remote changes into local repo but doesn't automatically merge or rebase them into your current branch.
+git pull// Fetches changes from the remote repository, just like git fetch, but it also automatically merges (or rebases, depending on your configuration) the changes into your current branch.
+
+
+if you see any conflicts while creating pull request vasu branch changes to master
+git checkout master; //goto master
+git pull; // get latest master changes
+git checkout vasu// got to branch
+git merge orgin/master. //merge master changes to vasu branch and resolve conflicts, (consider vscode)
+
+next add, commit, push to resolve conflict, next create PR and merge.
+
+
+
+
+things to try
+git fetch origin
+git pull origin master
+
+
+
+
+
+//to set origin in our local
+git remote add origin "our url"
+git push --set-upstream origin main
+
+
+
+
+git branch -M main // to change the name of the curretn branch, from master to main.
+-u: This option stands for "upstream" and is used to set up tracking. When you use -u for the first time, 
+it establishes a connection between the local branch and the remote branch, making it easier to push and pull changes in the future without specifying the branch names.  
+origin: This is the name of the remote repository. "origin" is a common default name for the remote repository you cloned from.
